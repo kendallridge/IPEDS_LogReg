@@ -35,5 +35,5 @@ proc hpgenselect data=final.regmodel_median;
 	class control--c21enprf;
 	model over_median(event='1') = cohort grantrate--instatef control hloffer--c21enprf / dist=binomial;
 	selection method=stepwise(choose=aic slentry=0.10 slstay=0.10 );
-	/****/
+ods select selectionsummary parameterestimates;
 run;
