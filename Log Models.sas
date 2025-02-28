@@ -37,3 +37,36 @@ proc hpgenselect data=final.regmodel_median;
 	selection method=stepwise(choose=aic slentry=0.10 slstay=0.10 );
 ods select selectionsummary parameterestimates;
 run;
+
+
+proc hpgenselect data=final.over200_median;
+	class control--c21enprf;
+	model over_median(event='1') = cohort grantrate--instatef control hloffer--c21enprf / dist=binomial;
+	selection method=stepwise(choose=aic slentry=0.10 slstay=0.10 );
+ods select selectionsummary parameterestimates;
+run;
+
+
+proc hpgenselect data=final.over400_median;
+	class control--c21enprf;
+	model over_median(event='1') = cohort grantrate--instatef control hloffer--c21enprf / dist=binomial;
+	selection method=stepwise(choose=aic slentry=0.10 slstay=0.10 );
+ods select selectionsummary parameterestimates;
+run;
+
+
+
+proc hpgenselect data=final.regmodel_median;
+	class control--c21enprf;
+	model over_median(event='1') = cohort grantrate--instatef control hloffer--c21enprf / dist=binomial;
+	selection method=stepwise(choose=aic slentry=0.10 slstay=0.10 );
+ods select selectionsummary parameterestimates;
+run;
+
+proc hpgenselect data=final.regmodel_median;
+	model over_median(event='1') = cohort grantavg pellrate loanavg instatet roomamt avgsalary  / dist=binomial;
+	selection method=stepwise(choose=aic slentry=0.10 slstay=0.10 );
+ods select selectionsummary parameterestimates;
+run;
+
+cohort grantavg pellrate loanavg instatet roomamt avgsalary 
