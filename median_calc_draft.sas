@@ -1,4 +1,5 @@
 libname IPEDS '~/IPEDS';
+options fmtsearch=(IPEDS);
 
 proc sql;
     create view SalaryTot as
